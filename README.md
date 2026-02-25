@@ -91,14 +91,14 @@ Responsable de:
 - Gestión de autenticación
 
 Estructura modular prevista:
-app/
-main.py
-routers/
-services/
-repositories/
-models/
-schemas/
-core/
+app/ 
+main.py 
+routers/ 
+services/ 
+repositories/ 
+models/ 
+schemas/ 
+core/ 
 
 ---
 
