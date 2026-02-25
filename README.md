@@ -57,3 +57,84 @@ Ejemplos:
 - No se realiza análisis línea por línea.
 
 El análisis completo se genera en formato JSON y el JSON crudo se almacena en base de datos.
+
+---
+
+## 🏗 Arquitectura General
+
+CodeScope está diseñado con separación clara de responsabilidades entre frontend y backend.
+
+### Frontend
+- React (Vite)
+- TypeScript
+- TailwindCSS
+
+Responsable de:
+- Interfaz de usuario
+- Manejo de estados (loading, error, done)
+- Consumo de API
+- Renderizado del análisis estructurado
+
+---
+
+### Backend
+- FastAPI (Python)
+- SQLAlchemy 2.0
+- MySQL
+
+Responsable de:
+- Validación de requests
+- Obtención de estructura del repositorio (GitHub)
+- Integración con IA (Gemini)
+- Generación del análisis estructurado
+- Persistencia del JSON crudo
+- Gestión de autenticación
+
+Estructura modular prevista:
+app/
+main.py
+routers/
+services/
+repositories/
+models/
+schemas/
+core/
+
+---
+
+### Autenticación
+
+- JWT Access Token (15 minutos)
+- Refresh Token (14 días)
+- Refresh almacenado en cookie HttpOnly
+- Rotación de refresh tokens
+- Hash persistido en MySQL
+
+Esto permite:
+- Seguridad básica para entorno real
+- Protección de endpoints
+- Asociación análisis ↔ usuario
+
+---
+
+### Integración con IA
+
+- Modelo: Gemini
+- Integrado como módulo interno del backend
+- Manejo de límites de tokens
+- Manejo de errores externos (rate limit, fallos de API)
+
+---
+
+## 🔄 Flujo principal del sistema
+
+1. Usuario ingresa URL de un repositorio público.
+2. Frontend envía request al backend.
+3. Backend:
+   - Valida la entrada.
+   - Obtiene la estructura del repositorio.
+   - Ejecuta módulo de IA.
+   - Genera análisis estructurado en JSON.
+   - Guarda el resultado en base de datos.
+4. Backend devuelve respuesta al frontend.
+5. Usuario puede consultar historial y favoritos.
