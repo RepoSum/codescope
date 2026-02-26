@@ -229,3 +229,66 @@ Cada funcionalidad se divide en tareas pequeñas separando
 responsabilidades de frontend y backend.
 
 ![User Story Tasks](docs/screenshots/user-story.png)
+
+---
+
+## 🔎 Enfoque de calidad y QA
+
+Desde la etapa de planificación, CodeScope fue diseñado considerando calidad del sistema y validación funcional antes de comenzar la implementación.
+
+El objetivo no fue únicamente desarrollar funcionalidades, sino reducir riesgos técnicos desde el diseño.
+
+### QA desde la planificación
+
+Antes de escribir código se definieron:
+
+- Historias de usuario con criterios de aceptación.
+- Casos de prueba manuales.
+- Escenarios de error.
+- Validaciones de API.
+- Flujos end-to-end del sistema.
+
+Los Test Cases fueron gestionados en Azure DevOps utilizando Work Items de tipo **Test Case**, permitiendo validar el comportamiento esperado del sistema desde etapas tempranas.
+
+---
+
+### Tipos de pruebas consideradas
+
+#### QA Manual
+Validación del flujo completo del usuario:
+
+- Generación de análisis.
+- Manejo de URLs inválidas.
+- Respuestas de error.
+- Protección de endpoints.
+- Estados de interfaz (loading / error / success).
+
+El objetivo es verificar que el sistema funcione correctamente desde la perspectiva del usuario final.
+
+---
+
+#### QA Automatizada (nivel inicial)
+
+Se definieron pruebas automatizables orientadas a detectar regresiones rápidamente:
+
+- Smoke tests de endpoints principales.
+- Validación de autenticación JWT.
+- Respuestas HTTP esperadas.
+- Manejo básico de seguridad.
+
+Estas pruebas permiten detectar cuando un cambio rompe funcionalidades previamente estables.
+
+---
+
+### Quality mindset aplicado
+
+El diseño del sistema contempla:
+
+- Validación explícita de inputs.
+- Manejo de errores externos (GitHub / IA).
+- Observabilidad mediante logs.
+- Control de estados del sistema.
+- Separación clara de responsabilidades.
+- Testing como parte del diseño, no como paso final.
+
+Este enfoque busca aproximarse a prácticas utilizadas en entornos reales de desarrollo.
