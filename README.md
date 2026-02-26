@@ -137,6 +137,82 @@ Esto permite:
    - Obtiene la estructura del repositorio.
    - Ejecuta módulo de IA.
    - Genera análisis estructurado en JSON.
-   - Guarda el resultado en base de datos.
 4. Backend devuelve respuesta al frontend.
-5. Usuario puede consultar historial y favoritos.
+5. Usuario puede consultar historial y favoritos.   
+
+---
+
+## 🧱 Desarrollo incremental por MVPs
+
+CodeScope no se desarrolló como un proyecto monolítico desde el inicio.  
+Fue diseñado y planificado mediante entregas incrementales (MVPs), permitiendo validar cada etapa antes de avanzar.
+
+### MVP 0 — Demo sin IA real
+- Endpoint mock `/analysis/mock`
+- Validaciones básicas
+- Renderizado de respuesta simulada en frontend
+- Manejo simple de estados (loading / error)
+
+Objetivo: validar arquitectura frontend ↔ backend antes de integrar IA real.
+
+---
+
+### MVP 1 — Integración real con GitHub e IA
+- Obtención real de estructura del repositorio
+- Integración con modelo Gemini
+- Generación de JSON estructurado
+- Persistencia del análisis en MySQL
+- Renderizado real en frontend
+
+Objetivo: construir el flujo funcional completo.
+
+---
+
+### MVP 2 — Autenticación e historial por usuario
+- Registro e inicio de sesión (JWT)
+- Access token (15 min)
+- Refresh token (14 días) con rotación
+- Protección de endpoints
+- Asociación análisis ↔ usuario
+- Historial individual
+
+Objetivo: agregar seguridad y persistencia por usuario.
+
+---
+
+### MVP 3 — Calidad, errores y observabilidad
+- Manejo explícito de errores externos (GitHub / IA)
+- Reintentos controlados
+- Límite de tokens
+- Logs útiles y trazabilidad
+- Estados claros en UI (PROCESSING / DONE / ERROR)
+- Test cases manuales definidos
+- Candidatos a automatización para detección de regresiones
+
+Objetivo: robustecer el sistema y prepararlo para uso real.
+
+---
+
+## 📋 Gestión del proyecto (Azure DevOps)
+
+El desarrollo está organizado formalmente mediante Azure Boards.
+
+La estructura incluye:
+
+- Epic general del producto.
+- Features organizadas por MVP.
+- Historias de usuario con criterios de aceptación.
+- Tareas técnicas descompuestas (backend, frontend, base de datos).
+- Test Cases creados antes de la implementación.
+
+Ejemplos de historias definidas:
+
+- US-01 — Generar análisis mock  
+- US-02 — Guardar análisis generado  
+- US-08 — Registro e inicio de sesión (JWT)  
+- US-14 — Manejo de errores externos y reintentos  
+- US-16 — Observabilidad y trazabilidad  
+
+Se incluyen capturas del backlog y de los Test Cases como evidencia del proceso de planificación.   
+
+
