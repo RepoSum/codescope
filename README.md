@@ -215,4 +215,17 @@ Ejemplos de historias definidas:
 
 Se incluyen capturas del backlog y de los Test Cases como evidencia del proceso de planificación.   
 
+### Backlog definido en Azure DevOps
 
+El proyecto fue planificado utilizando Azure Boards,
+organizando el trabajo mediante User Stories y tareas técnicas
+antes de comenzar la implementación.
+
+![Backlog](docs/screenshots/backlog.png)
+
+### Ejemplo de desglose de una historia de usuario
+
+Cada funcionalidad se divide en tareas pequeñas separando
+responsabilidades de frontend y backend.
+
+![User Story Tasks](docs/screenshots/user-story.png)
