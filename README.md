@@ -292,3 +292,66 @@ El diseño del sistema contempla:
 - Testing como parte del diseño, no como paso final.
 
 Este enfoque busca aproximarse a prácticas utilizadas en entornos reales de desarrollo.
+
+---
+
+## 🧠 Más allá de un CRUD tradicional
+
+Aunque CodeScope presenta una interfaz simple para el usuario, el proyecto aborda problemas que van más allá de una aplicación CRUD clásica.
+
+Un CRUD típico generalmente consiste en:
+- Crear, leer, actualizar y eliminar datos.
+- Persistencia directa en base de datos.
+- Lógica de negocio limitada.
+
+CodeScope introduce desafíos adicionales propios de sistemas reales:
+
+### Integración con servicios externos
+El sistema depende de múltiples componentes externos:
+
+- API de GitHub para obtención de repositorios.
+- Modelo de inteligencia artificial (Gemini).
+- Manejo de fallos y respuestas impredecibles.
+
+Esto obliga a considerar:
+- Timeouts
+- errores externos
+- reintentos controlados
+- validación de respuestas
+
+---
+
+### Procesamiento no determinístico
+
+A diferencia de un CRUD tradicional, el resultado del análisis depende de un modelo de IA.
+
+El sistema debe:
+- estructurar respuestas generadas dinámicamente,
+- validar resultados,
+- almacenar el JSON crudo para trazabilidad,
+- permitir futuras mejoras del análisis.
+
+---
+
+### Diseño orientado a escalabilidad conceptual
+
+Desde el diseño se contemplan aspectos como:
+
+- separación frontend / backend,
+- arquitectura modular,
+- manejo de límites de tokens,
+- observabilidad mediante logs,
+- autenticación segura mediante JWT + refresh tokens.
+
+---
+
+### Enfoque incremental real
+
+El proyecto fue desarrollado mediante MVPs progresivos:
+
+1. Validación de arquitectura.
+2. Integración funcional.
+3. Seguridad por usuario.
+4. Calidad, testing y observabilidad.
+
+Este enfoque replica prácticas comunes en equipos de desarrollo profesionales.
