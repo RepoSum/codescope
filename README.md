@@ -355,3 +355,84 @@ El proyecto fue desarrollado mediante MVPs progresivos:
 4. Calidad, testing y observabilidad.
 
 Este enfoque replica prácticas comunes en equipos de desarrollo profesionales.
+
+---
+
+## 📊 Estado actual del proyecto
+
+Actualmente CodeScope se encuentra en desarrollo activo siguiendo el roadmap definido.
+
+Estado general:
+
+- ✅ Arquitectura definida
+- ✅ Backlog estructurado en Azure DevOps
+- ✅ Historias de usuario y tareas técnicas definidas
+- ✅ Test Cases manuales y automatizables planificados
+- ⏳ Implementación en progreso (MVP 0)
+- 🔜 Integración real con repositorios e IA
+
+El objetivo actual es validar completamente el flujo técnico antes de optimizar performance y experiencia de usuario.
+
+---
+
+## 🗺 Roadmap técnico
+
+### Próximos pasos
+
+- Implementar endpoint mock de análisis.
+- Conectar frontend con backend.
+- Persistir resultados en base de datos.
+- Integrar análisis real mediante IA.
+- Incorporar autenticación JWT.
+- Implementar historial por usuario.
+- Mejorar manejo de errores externos.
+- Agregar observabilidad y logging.
+
+### Evolución futura posible
+
+- Soporte para múltiples proveedores de repositorios.
+- Comparación entre versiones de análisis.
+- Métricas automáticas de calidad de código.
+- Caché de análisis para repositorios frecuentes.
+- Optimización de costos y uso de tokens IA.
+
+---
+
+## 📦 Estructura del proyecto
+
+El sistema está organizado en múltiples repositorios dentro de una organización de GitHub.
+
+### Repositorios principales
+
+**codescope**
+Repositorio central de documentación y arquitectura del proyecto.
+
+**codescope-backend**
+Backend desarrollado con FastAPI responsable de:
+- lógica de negocio,
+- integración con GitHub,
+- análisis mediante IA,
+- autenticación,
+- persistencia de datos.
+
+**codescope-frontend**
+Aplicación web desarrollada con React + Vite encargada de:
+- interacción con el usuario,
+- visualización del análisis,
+- gestión de estados de interfaz.
+
+---
+
+## 👨‍💻 Sobre el proyecto
+
+CodeScope es un proyecto personal orientado a explorar el diseño de sistemas modernos que integran inteligencia artificial dentro de flujos reales de desarrollo de software.
+
+El foco principal del proyecto es:
+
+- diseño incremental,
+- separación de responsabilidades,
+- calidad desde la planificación,
+- integración con servicios externos,
+- construcción de un sistema mantenible.
+
+El desarrollo se documenta públicamente como parte de un proceso de aprendizaje y crecimiento profesional.
