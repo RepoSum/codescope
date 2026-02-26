@@ -436,3 +436,97 @@ El foco principal del proyecto es:
 - construcción de un sistema mantenible.
 
 El desarrollo se documenta públicamente como parte de un proceso de aprendizaje y crecimiento profesional.
+
+---
+
+## ⚖️ Decisiones técnicas y trade-offs
+
+Durante el diseño de CodeScope se tomaron decisiones conscientes considerando simplicidad inicial, aprendizaje y posibilidad de evolución futura.
+
+### Backend en FastAPI (Python)
+
+**Decisión**
+Utilizar FastAPI como base del backend.
+
+**Motivo**
+- Integración natural con modelos de IA.
+- Alto rendimiento para APIs.
+- Tipado mediante Pydantic.
+- Simplicidad para iterar rápidamente.
+
+**Trade-off**
+Python no siempre es la opción más común en arquitecturas enterprise tradicionales, pero reduce significativamente la complejidad al trabajar con IA.
+
+---
+
+### IA integrada dentro del backend
+
+**Decisión**
+Inicialmente integrar el módulo de IA dentro del mismo backend en lugar de un microservicio separado.
+
+**Motivo**
+- Reducir complejidad operativa inicial.
+- Simplificar despliegue.
+- Validar primero el flujo funcional.
+
+**Trade-off**
+A futuro podría separarse como servicio independiente si el sistema escala.
+
+---
+
+### Persistencia del JSON crudo del análisis
+
+**Decisión**
+Guardar la respuesta completa generada por la IA.
+
+**Motivo**
+- Trazabilidad.
+- Debugging.
+- Posibilidad de reprocesar análisis en el futuro.
+- Auditoría de resultados.
+
+**Trade-off**
+Mayor uso de almacenamiento frente a guardar solo datos resumidos.
+
+---
+
+### Autenticación JWT + Refresh Tokens
+
+**Decisión**
+Implementar access token corto y refresh token rotativo.
+
+**Motivo**
+- Modelo utilizado en aplicaciones reales.
+- Mejora de seguridad.
+- Separación entre sesión y autenticación.
+
+**Trade-off**
+Mayor complejidad respecto a autenticación básica.
+
+---
+
+### Desarrollo guiado por MVPs
+
+**Decisión**
+Construir el sistema mediante entregas incrementales.
+
+**Motivo**
+- Reducir riesgo técnico.
+- Validar arquitectura temprano.
+- Evitar sobreingeniería inicial.
+
+**Trade-off**
+Algunas partes del sistema evolucionan y se refactorizan entre MVPs.
+
+
+---
+
+## 🧭 Nota personal
+
+CodeScope forma parte de mi proceso de aprendizaje mientras busco consolidar habilidades en desarrollo backend, testing y diseño de sistemas.
+
+Antes de comenzar a programar, decidí planificar el proyecto como se trabaja en entornos reales: definiendo MVPs, backlog, historias de usuario y casos de prueba desde el inicio.
+
+El objetivo no es solo construir una aplicación funcional, sino aprender a pensar cómo se diseña, organiza y mejora un sistema de software paso a paso.
+
+El proyecto continúa evolucionando a medida que avanzo en la implementación y aprendizaje.
